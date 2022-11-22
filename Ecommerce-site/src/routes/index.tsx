@@ -6,7 +6,7 @@ export default component$(() => {
   return (
     <div class="flex flex-1">
       {/* Background image */}
-      <img src="https://cdn.pixabay.com/photo/2016/03/20/13/48/zip-1268656_960_720.jpg"
+      <img src="https://escrituras-eremitas.com/wp-content/uploads/2022/11/1792305-scaled.jpg"
       alt="person at the pool" class="object-cover"/>
     </div>
   );
