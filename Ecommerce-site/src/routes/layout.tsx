@@ -4,7 +4,7 @@ import Header from '../components/header/header';
 export default component$(() => {
   return (
     <>
-      <main class="flex-1 flex flex-col min-h-screen relative">
+      <main class="flex-1 flex flex-col relative">
         <Header />
           <Slot />
       </main>
