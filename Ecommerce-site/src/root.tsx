@@ -22,7 +22,7 @@ export default component$(() => {
         css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/
         9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       </head>
-      <body lang="en" class="flex flex-col min-h-screen bg-green-200">
+      <body lang="en" class="flex flex-col min-h-screen bg-white-200">
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>
