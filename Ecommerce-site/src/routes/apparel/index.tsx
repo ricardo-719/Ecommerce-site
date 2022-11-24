@@ -29,7 +29,7 @@ export default component$(() => {
         if (localStorage.getItem('apparelBasket')){
           appBasket = JSON.parse(localStorage.getItem ('apparelBasket'))
         }
-        appBasket.items.push([state.name])
+        appBasket.items.push([state])
         localStorage.setItem('apparelBasket', JSON.stringify(appBasket))
       }} class="border py-4 border-slate-900 border-solid px-8 mx-auto hover:opacity-50">Add to Cart</button>
     </div>
