@@ -1,5 +1,6 @@
-import { component$, useClientEffect$, useStore, useStylesScoped$ } from '@builder.io/qwik';
+import { component$, useClientEffect$, useStore, useStylesScoped$, useContext } from '@builder.io/qwik';
 import { DocumentHead, useLocation } from '@builder.io/qwik-city';
+import { MyContext } from '~/root';
 
 export default component$(() => {
   const loc = useLocation();
@@ -10,12 +11,20 @@ export default component$(() => {
     url: ''
   });
 
+  const contextState = useContext(MyContext)
+
   useClientEffect$(() => {
     const data = JSON.parse(localStorage.getItem('pprl'))
     state.name = data.name
     state.price = data.price
     state.url = data.url
   });
+
+  useClientEffect$(() => {
+    if (localStorage.getItem('appBasket')) {
+      contextState.items = JSON.parse(localStorage.getItem('appBasket'))
+    }
+  })
 
   return (
     <div class="flex flex-col gap-2 justify-center">
@@ -31,6 +40,7 @@ export default component$(() => {
         }
         appBasket.items.push([state])
         localStorage.setItem('apparelBasket', JSON.stringify(appBasket))
+        contextState.items = [...contextState.items, state]
       }} class="border py-4 border-slate-900 border-solid px-8 mx-auto hover:opacity-50">Add to Cart</button>
     </div>
   );

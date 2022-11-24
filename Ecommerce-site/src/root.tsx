@@ -1,11 +1,19 @@
-import { component$, useStyles$ } from '@builder.io/qwik';
+import { component$, useStyles$, useStore, createContext, useContextProvider, useContext } from '@builder.io/qwik';
 import { QwikCityProvider, RouterOutlet, ServiceWorkerRegister } from '@builder.io/qwik-city';
 import { RouterHead } from './components/router-head/router-head';
 
 import globalStyles from './global.css?inline';
 
+export const MyContext = createContext('my-context')
+
 export default component$(() => {
- 
+
+   const state = useStore({
+    items: []
+  })
+
+  useContextProvider(MyContext, state)
+
   useStyles$(globalStyles);
 
   return (
@@ -14,6 +22,7 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
         <RouterHead />
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" 
         integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />

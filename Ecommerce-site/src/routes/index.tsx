@@ -1,9 +1,18 @@
-import { component$ } from '@builder.io/qwik';
+import { component$, useContext, useContextProvider, createContext, useStore, useClientEffect$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { Link } from '@builder.io/qwik-city';
 import ProductsGrid from '~/components/products-grid/products-grid';
+import { MyContext } from '~/root';
 
 export default component$(() => {
+
+const contextState = useContext(MyContext)
+  useClientEffect$(() => {
+    if (localStorage.getItem('appBasket')) {
+      contextState.items = JSON.parse(localStorage.getItem('appBasket'))
+    }
+  })
+
   return (
     <div class="flex flex-1 flex-col">
       {/* Background image */}
