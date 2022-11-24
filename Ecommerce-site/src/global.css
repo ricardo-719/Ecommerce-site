@@ -4,12 +4,9 @@
  @tailwind components;
  @tailwind utilities;
 
- *:not(i) {
-    font-family: 'Jost', sans-serif
-}
- /* {
+ * {
   font-family: 'Jost', sans-serif;
   transition-duration: 300ms;
   scroll-behavior: smooth;
- }*/
+ }
 
