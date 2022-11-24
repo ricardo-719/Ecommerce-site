@@ -1,4 +1,4 @@
-import { component$, useStylesScoped$, useStore } from '@builder.io/qwik';
+import { component$, useStylesScoped$, useStore, useClientEffect$, useContextProvider, createContext, useContext, useWatch$ } from '@builder.io/qwik';
 import { QwikLogo } from '../icons/qwik';
 
 export default component$(() => {
@@ -18,7 +18,7 @@ export default component$(() => {
     }}>
       <h1 style="background-color: rgba(15, 23, 42, 0.25); border-radius: 15px;">Apparel Store</h1>
       <div>
-      <i class="fa-solid fa-cart-shopping">Cart</i>
+      <i class="fa fa-shopping-cart"></i>
       </div>
     </header>
   );
