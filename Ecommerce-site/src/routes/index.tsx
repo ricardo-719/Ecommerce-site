@@ -5,11 +5,10 @@ import ProductsGrid from '~/components/products-grid/products-grid';
 import { MyContext } from '~/root';
 
 export default component$(() => {
-
-const contextState = useContext(MyContext)
+  const contextState = useContext(MyContext)
   useClientEffect$(() => {
     if (localStorage.getItem('appBasket')) {
-      contextState.items = [...JSON.parse(localStorage.getItem('appBasket'))]
+      contextState.items = [...JSON.parse(localStorage.getItem('appBasket')).items]
     }
   })
 

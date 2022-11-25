@@ -22,7 +22,7 @@ export default component$(() => {
 
   useClientEffect$(() => {
     if (localStorage.getItem('appBasket')) {
-      contextState.items = [...JSON.parse(localStorage.getItem('appBasket'))]
+      contextState.items = [...JSON.parse(localStorage.getItem('appBasket')).items]
     }
   })
 
