@@ -22,7 +22,7 @@ export default component$(() => {
 
   useClientEffect$(() => {
     if (localStorage.getItem('appBasket')) {
-      contextState.items = JSON.parse(localStorage.getItem('appBasket'))
+      contextState.items = [...JSON.parse(localStorage.getItem('appBasket'))]
     }
   })
 
@@ -38,7 +38,7 @@ export default component$(() => {
         if (localStorage.getItem('apparelBasket')){
           appBasket = JSON.parse(localStorage.getItem ('apparelBasket'))
         }
-        appBasket.items.push([state])
+        appBasket.items.push(state)
         localStorage.setItem('apparelBasket', JSON.stringify(appBasket))
         contextState.items = [...contextState.items, state]
       }} class="border py-4 border-slate-900 border-solid px-8 mx-auto hover:opacity-50">Add to Cart</button>
